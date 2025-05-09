@@ -1,0 +1,154 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 5%;
+  border-bottom: 1px solid var(--color-gray-200);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logoLink {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.02);
+}
+
+.logoContainer {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.logoLink:hover .logoContainer {
+  opacity: 0.9;
+}
+
+.logo {
+  object-fit: contain;
+  border-radius: var(--border-radius-full);
+  transition: transform 0.3s ease;
+}
+
+.brandName {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  font-family: var(--font-lora);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.logoLink:hover .brandName {
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  padding: 1.5rem 5%;
+}
+
+.navList {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  font-family: var(--font-lora);
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  position: relative;
+  padding: 0.5rem 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Efecto de subrayado dorado animado para links INACTIVOS */
+.linkUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: left center;
+}
+
+.navLink:not(.active):hover .linkUnderline {
+  width: 100%;
+}
+
+.navLink:not(.active):hover {
+  color: var(--color-primary);
+}
+
+/* Estilos para link ACTIVO (con círculo) */
+.navLink.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.navLink.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius-full);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Ocultar subrayado en links activos */
+.navLink.active .linkUnderline {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brandSub {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-gray-600);
+  font-family: var(--font-lora);
+  letter-spacing: 0.3px;
+}
