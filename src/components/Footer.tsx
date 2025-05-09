@@ -29,8 +29,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/quienes-somos" className={styles.footerLink}>
-                Nuestro equipo
+              <Link href="/nostros" className={styles.footerLink}>
+                Nosotros
               </Link>
             </li>
             <li>
