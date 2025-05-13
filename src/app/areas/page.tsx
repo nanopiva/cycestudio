@@ -23,42 +23,12 @@ export default function AreasEspecialidad() {
       <section className={styles.whiteSection}>
         <div className={styles.container}>
           <div className={styles.sectionIntro}>
-            <h2 className={styles.sectionTitle}>Nuestros Campos de Práctica</h2>
+            <h2 className={styles.sectionTitle}>Nuestros campos de práctica</h2>
             <div className={styles.goldDivider}></div>
             <p className={styles.sectionText}>
               Ofrecemos asesoramiento especializado en diversas áreas del
               derecho, con amplia experiencia en los siguientes tipos de casos:
             </p>
-          </div>
-
-          {/* Derecho de Familia */}
-          <div className={styles.specialtySection}>
-            <div className={styles.specialtyHeader}>
-              <div className={styles.specialtyIcon}>
-                <i className="fas fa-family"></i>
-              </div>
-              <h3 className={styles.specialtyTitle}>
-                Derecho de familia y sucesiones
-              </h3>
-            </div>
-            <div className={styles.specialtyContent}>
-              <div className={styles.specialtyDescription}>
-                <p>
-                  Brindamos acompañamiento legal en todas las etapas de los
-                  procesos familiares, buscando siempre proteger los intereses
-                  de nuestros clientes y sus familias.
-                </p>
-              </div>
-              <ul className={styles.caseList}>
-                <li>Divorcios y disolución de uniones convivenciales</li>
-                <li>Régimen de visitas y custodia de menores</li>
-                <li>Alimentos (cónyuge e hijos)</li>
-                <li>División de bienes en separaciones</li>
-                <li>Sucesiones y declaratorias de herederos</li>
-                <li>Testamentos y planificación sucesoria</li>
-                <li>Procesos de adopción</li>
-              </ul>
-            </div>
           </div>
 
           {/* Derecho Laboral */}
@@ -111,6 +81,36 @@ export default function AreasEspecialidad() {
                 <li>Accidentes en lugares públicos y privados</li>
                 <li>Daños morales y psicológicos</li>
                 <li>Reclamos por defectos en productos o servicios</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Derecho de Familia */}
+          <div className={styles.specialtySection}>
+            <div className={styles.specialtyHeader}>
+              <div className={styles.specialtyIcon}>
+                <i className="fas fa-family"></i>
+              </div>
+              <h3 className={styles.specialtyTitle}>
+                Derecho de familia y sucesiones
+              </h3>
+            </div>
+            <div className={styles.specialtyContent}>
+              <div className={styles.specialtyDescription}>
+                <p>
+                  Brindamos acompañamiento legal en todas las etapas de los
+                  procesos familiares, buscando siempre proteger los intereses
+                  de nuestros clientes y sus familias.
+                </p>
+              </div>
+              <ul className={styles.caseList}>
+                <li>Divorcios y disolución de uniones convivenciales</li>
+                <li>Régimen de visitas y custodia de menores</li>
+                <li>Alimentos (cónyuge e hijos)</li>
+                <li>División de bienes en separaciones</li>
+                <li>Sucesiones y declaratorias de herederos</li>
+                <li>Testamentos y planificación sucesoria</li>
+                <li>Procesos de adopción</li>
               </ul>
             </div>
           </div>

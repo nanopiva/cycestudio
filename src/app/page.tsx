@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import CTA from "@/components/Cta";
-import ScrollAnimation from "@/components/ScrollAnimation"; // Importa el componente de animación
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 import heroImage from "../../public/tribunales.jpg";
 
@@ -56,18 +56,19 @@ export default function Landing() {
 
           <div className={styles.specialtiesGrid}>
             {/* Card 1 */}
+
             <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={100}>
+              <ScrollAnimation delay={200}>
                 <div className={styles.specialtyContent}>
                   <div className={styles.specialtyIcon}>
-                    <i className="fas fa-family"></i>
+                    <i className="fas fa-briefcase"></i>
                   </div>
                   <h3 className={styles.specialtyTitle}>
-                    Derecho familiar y sucesorio
+                    Derecho laboral y ART
                   </h3>
                   <p className={styles.specialtyText}>
-                    Asesoramiento integral en cuestiones familiares, divorcios,
-                    alimentos y sucesiones.
+                    Asesoramiento a trabajadores y empleadores en todas las
+                    áreas laborales.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -91,15 +92,17 @@ export default function Landing() {
 
             {/* Card 3 */}
             <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={200}>
+              <ScrollAnimation delay={100}>
                 <div className={styles.specialtyContent}>
                   <div className={styles.specialtyIcon}>
-                    <i className="fas fa-briefcase"></i>
+                    <i className="fas fa-family"></i>
                   </div>
-                  <h3 className={styles.specialtyTitle}>Derecho laboral</h3>
+                  <h3 className={styles.specialtyTitle}>
+                    Derecho familiar y sucesorio
+                  </h3>
                   <p className={styles.specialtyText}>
-                    Asesoramiento a trabajadores y empleadores en todas las
-                    áreas laborales.
+                    Asesoramiento integral en cuestiones familiares, divorcios,
+                    alimentos y sucesiones.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -189,7 +192,7 @@ export default function Landing() {
               Te asesoramos para que comprendas tus derechos y te acompañamos
               para hacerlos respetar.
             </p>
-            <a href="/servicios" className={styles.linkButton}>
+            <a href="/contacto" className={styles.linkButton}>
               Descubre cómo podemos ayudarte{" "}
               <i className="fas fa-arrow-right"></i>
             </a>

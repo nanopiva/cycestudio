@@ -23,7 +23,8 @@ export default function Nosotros() {
       <main className={styles.mainContent}>
         {/* Sección de Introducción */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Nuestra Esencia</h2>
+          <h2 className={styles.sectionTitle}>Nuestra esencia</h2>
+          <div className={styles.goldDivider}></div>
           <div className={styles.textContent}>
             <p>
               En <strong>C&C Soluciones Legales</strong>, hemos desarrollado una
@@ -41,7 +42,8 @@ export default function Nosotros() {
 
         {/* Sección de Compromiso */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Nuestro Compromiso</h2>
+          <h2 className={styles.sectionTitle}>Nuestro compromiso</h2>
+          <div className={styles.goldDivider}></div>
           <div className={styles.textContent}>
             <p>
               Nos dedicamos a brindar asesoramiento legal integral a personas y
@@ -69,6 +71,7 @@ export default function Nosotros() {
         {/* Sección de Valores - Versión mejorada */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Principios rectores</h2>
+          <div className={styles.goldDivider}></div>
           <div className={styles.principlesContainer}>
             <div className={styles.principle}>
               <h3 className={styles.principleTitle}>Atención personalizada</h3>

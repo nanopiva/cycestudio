@@ -1,6 +1,5 @@
 import styles from "@/styles/Footer.module.css";
 import Link from "next/link";
-
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -64,7 +63,7 @@ export default function Footer() {
 
       <div className={styles.footerBottom}>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} CYC Soluciones Legales. Todos los
+          © {new Date().getFullYear()} C&C Soluciones Legales. Todos los
           derechos reservados.
         </p>
         <div className={styles.socialLinks}>

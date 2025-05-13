@@ -1,6 +1,9 @@
-/* page.module.css */
-
+/* Base styles */
 .body {
+  font-family: "Lora", serif;
+  color: var(--color-gray-800);
+  line-height: 1.6;
+  font-size: 1rem;
   background-color: var(--color-gray-50);
   min-height: 100vh;
 }
@@ -21,19 +24,19 @@
 
 /* Contact Section */
 .contactSection {
-  padding: 5rem 0;
-  background-color: var(--color-gray-50); /* #f5f5f5 */
+  padding: 3rem 0;
+  background-color: var(--color-gray-50);
   border-top: 1px solid var(--color-gray-100);
   border-bottom: 1px solid var(--color-gray-100);
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   color: var(--color-primary-dark);
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -51,11 +54,11 @@
   max-width: 700px;
   margin: 0 auto;
   color: var(--color-gray-700);
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   line-height: 1.8;
 }
 
-/* Animación de entrada para el contactMain */
+/* Contact Method Cards - Responsive Styles */
 .contactMain {
   opacity: 0;
   transform: translateY(20px);
@@ -70,31 +73,20 @@
 .contactGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 768px) {
-  .contactGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Nueva regla para el email centrado */
-  .emailMethod {
-    grid-column: 1 / -1;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .contactMethod {
   display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
-  padding: 2rem;
+  padding: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--color-gray-100);
+  width: 100%;
 }
 
 .contactMethod:hover {
@@ -115,10 +107,11 @@
 
 .methodIcon {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  width: 50px;
-  margin-right: 1.5rem;
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 1rem;
 }
 
 .iconSvg {
@@ -128,47 +121,58 @@
 }
 
 .methodContent {
-  flex: 1;
+  width: 100%;
 }
 
 .methodContent h3 {
   color: var(--color-primary-dark);
   margin-bottom: 0.75rem;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .methodDescription {
   color: var(--color-gray-700);
   margin-bottom: 1.5rem;
   line-height: 1.7;
-  font-size: 1.1rem;
+  font-size: 0.9375rem;
+  text-align: center;
 }
 
+/* Contact Links - Modified for vertical buttons */
 .contactLinks {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .contactLink {
   display: flex;
   align-items: center;
+  justify-content: center;
   color: var(--color-primary-dark);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
-  font-size: 1.1rem;
-  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  padding: 0.75rem;
   border-radius: var(--border-radius-md);
   background-color: var(--color-gray-100);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contactLink:hover {
   color: var(--color-primary);
 }
 
-.contactIcon {
+.copyIcon {
   width: 18px;
   height: 18px;
   margin-right: 0.75rem;
@@ -178,15 +182,18 @@
 .whatsappLink {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: var(--color-primary);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem;
   border-radius: var(--border-radius-md);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 0.9375rem;
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  white-space: nowrap;
 }
 
 .whatsappLink:hover {
@@ -201,25 +208,12 @@
   margin-right: 0.75rem;
 }
 
-.emailLink {
-  display: inline-block;
-  color: var(--color-primary-dark);
-  text-decoration: none;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  transition: color 0.2s;
-  font-size: 1.1rem;
-}
-
-.emailLink:hover {
-  color: var(--color-primary);
-}
-
 .responseTime {
   display: flex;
   align-items: center;
+  justify-content: center;
   color: var(--color-gray-600);
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-top: 1rem;
 }
 
@@ -230,10 +224,10 @@
   color: var(--color-gray-500);
 }
 
-/* Nueva Sección de Modalidades - Estilo completo */
+/* Consultation Types Section */
 .consultationTypesSection {
-  padding: 6rem 0;
-  background-color: var(--color-primary-lighter); /* #e8f1ee */
+  padding: 4rem 0;
+  background-color: var(--color-primary-lighter);
   position: relative;
 }
 
@@ -245,11 +239,11 @@
 
 .consultationHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .consultationTitle {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: var(--color-primary-dark);
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -257,7 +251,7 @@
 
 .consultationSubtitle {
   color: var(--color-gray-700);
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.7;
@@ -266,15 +260,9 @@
 .consultationOptions {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .consultationOptions {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .consultationOption {
@@ -282,7 +270,7 @@
   flex-direction: column;
   background-color: white;
   border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-gray-100);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -295,6 +283,7 @@
 
 .optionHeader {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
 }
@@ -307,7 +296,8 @@
   justify-content: center;
   background-color: var(--color-primary-lighter);
   border-radius: 50%;
-  margin-right: 1.5rem;
+  margin-right: 0;
+  margin-bottom: 1rem;
   flex-shrink: 0;
 }
 
@@ -320,9 +310,10 @@
 
 .optionTitle {
   color: var(--color-primary-dark);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
+  text-align: center;
 }
 
 .optionContent {
@@ -331,9 +322,10 @@
 
 .optionContent p {
   color: var(--color-gray-700);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .optionBenefits {
@@ -347,7 +339,7 @@
   position: relative;
   margin-bottom: 0.75rem;
   color: var(--color-gray-700);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -359,9 +351,9 @@
   font-weight: bold;
 }
 
-/* Locations Section - Modificado con texto centrado */
+/* Locations Section */
 .locationsSection {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background-color: white;
   border-top: 1px solid var(--color-gray-100);
 }
@@ -375,14 +367,8 @@
 .locationsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-@media (min-width: 992px) {
-  .locationsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .locationCard {
@@ -397,7 +383,7 @@
 
 .locationMap {
   width: 100%;
-  height: 300px;
+  height: 250px;
 }
 
 .map {
@@ -407,12 +393,12 @@
 }
 
 .locationInfo {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .locationTitle {
   color: var(--color-primary-dark);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -433,7 +419,7 @@
 
 .locationDetail p {
   color: var(--color-gray-700);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
   text-align: center;
 }
@@ -448,12 +434,12 @@
   justify-content: center;
   background-color: var(--color-primary-dark);
   color: white;
-  padding: 0.85rem 1.75rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius-md);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1rem;
   box-shadow: var(--shadow-sm);
   margin: 0 auto;
 }
@@ -470,55 +456,11 @@
   margin-right: 0.75rem;
 }
 
-/* Estilos para el modal de copiado */
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  10% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-  90% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-}
-
-/* Cambios en el botón de teléfono */
-.contactLink {
-  display: flex;
-  align-items: center;
-  color: var(--color-primary-dark);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
-  font-size: 1.1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius-md);
-  background-color: var(--color-gray-100);
-  border: none;
-  cursor: pointer;
-}
-
-.copyIcon {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.75rem;
-  color: var(--color-primary);
-}
-
-/* Estilos para el modal de copiado */
+/* Copy Modal */
 .copyModal {
   position: fixed;
-  bottom: 30px;
   left: 50%;
+  bottom: calc(100vh - 97vh);
   transform: translateX(-50%);
   background-color: var(--color-primary-dark);
   color: white;
@@ -528,7 +470,7 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  animation: slideUp 0.3s ease-out, fadeOut 0.3s ease-out 1.7s forwards;
+  animation: fadeInOut 2s ease-in-out forwards;
 }
 
 .modalContent {
@@ -543,21 +485,222 @@
   color: var(--color-secondary);
 }
 
-@keyframes slideUp {
-  from {
+@keyframes fadeInOut {
+  0% {
     opacity: 0;
     transform: translate(-50%, 20px);
   }
-  to {
+  10% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
-}
-
-@keyframes fadeOut {
-  to {
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
     opacity: 0;
+    transform: translate(-50%, 20px);
   }
 }
 
-/* Resto del CSS permanece igual... */
+/* Responsive Media Queries */
+@media (min-width: 600px) {
+  .contactSection,
+  .consultationTypesSection,
+  .locationsSection {
+    padding: 4rem 0;
+  }
+
+  .contactMethod {
+    flex-direction: row;
+    padding: 1.5rem;
+  }
+
+  .methodIcon {
+    width: 50px;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .methodContent h3,
+  .methodDescription,
+  .optionTitle,
+  .optionContent p {
+    text-align: left;
+  }
+
+  /* Mantener botones en columna solo para métodos telefónicos */
+  .santaFeMethod .contactLinks,
+  .entreRiosMethod .contactLinks {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .santaFeMethod .contactLink,
+  .santaFeMethod .whatsappLink,
+  .entreRiosMethod .contactLink,
+  .entreRiosMethod .whatsappLink {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .responseTime {
+    justify-content: flex-start;
+  }
+
+  .consultationOption {
+    padding: 2rem;
+  }
+
+  .optionHeader {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .optionIcon {
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .optionTitle {
+    text-align: left;
+  }
+
+  .optionContent p {
+    text-align: left;
+  }
+
+  /* Email method mantiene botones en fila */
+  .emailMethod .contactLinks {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .emailMethod .contactLink,
+  .emailMethod .whatsappLink {
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .sectionTitle,
+  .consultationTitle {
+    font-size: 2.25rem;
+  }
+
+  .sectionText,
+  .consultationSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .methodContent h3,
+  .optionTitle,
+  .locationTitle {
+    font-size: 1.375rem;
+  }
+
+  .methodDescription,
+  .optionContent p,
+  .optionBenefits li,
+  .locationDetail p {
+    font-size: 1.0625rem;
+  }
+
+  .contactLink,
+  .whatsappLink,
+  .locationButton {
+    font-size: 1.0625rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .emailMethod {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .consultationOptions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .locationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactSection,
+  .consultationTypesSection,
+  .locationsSection {
+    padding: 5rem 0;
+  }
+
+  .sectionTitle,
+  .consultationTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionText,
+  .consultationSubtitle {
+    font-size: 1.375rem;
+  }
+
+  .methodContent h3,
+  .optionTitle,
+  .locationTitle {
+    font-size: 1.5rem;
+  }
+
+  .methodDescription,
+  .optionContent p,
+  .optionBenefits li,
+  .locationDetail p {
+    font-size: 1.125rem;
+  }
+
+  .contactLink,
+  .whatsappLink,
+  .locationButton {
+    font-size: 1.125rem;
+  }
+
+  .contactGrid {
+    gap: 2.5rem;
+  }
+
+  .contactMethod {
+    padding: 2rem;
+  }
+
+  .consultationOptions {
+    gap: 2.5rem;
+  }
+
+  .consultationOption {
+    padding: 2.5rem;
+  }
+
+  .locationsGrid {
+    gap: 3rem;
+  }
+}
+
+/* Special adjustments for email method */
+.emailMethod .contactLink {
+  white-space: normal;
+  word-break: break-all;
+}
+
+@media (min-width: 600px) {
+  .emailMethod .contactLink {
+    white-space: nowrap;
+    word-break: normal;
+  }
+}
