@@ -4,27 +4,46 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import Hero from "@/components/Hero";
 import heroContact from "../../../public/heroContacto.jpg";
-import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardAnimation = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+};
+
+const modalAnimation = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -10 },
+};
 
 export default function Contacto() {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  useEffect(() => {
-    const contactElement = document.querySelector(`.${styles.contactMain}`);
-    if (contactElement) {
-      setTimeout(() => {
-        contactElement.classList.add(styles.animateIn);
-      }, 300);
-    }
-  }, []);
-
   const copyToClipboard = (text: string, type: "phone" | "email" = "phone") => {
     navigator.clipboard.writeText(text);
-    setShowModal(true);
     setModalMessage(
       type === "phone" ? "¡Número copiado!" : "¡Correo electrónico copiado!"
     );
+    setShowModal(true);
     setTimeout(() => setShowModal(false), 2000);
   };
 
@@ -42,24 +61,40 @@ export default function Contacto() {
       </section>
 
       {/* Sección de Contacto Principal */}
-      <section className={styles.contactSection}>
+      <motion.section
+        className={styles.contactSection}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={staggerContainer}
+      >
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Medios de contacto</h2>
-            <div className={styles.goldDivider}></div>
-            <p className={styles.sectionText}>
+          <motion.div
+            className={styles.sectionHeader}
+            variants={staggerContainer}
+          >
+            <motion.h2 className={styles.sectionTitle} variants={fadeUp}>
+              Medios de contacto
+            </motion.h2>
+            <motion.div
+              className={styles.goldDivider}
+              variants={fadeUp}
+            ></motion.div>
+            <motion.p className={styles.sectionText} variants={fadeUp}>
               Estoy disponible para atender tu consulta a través de estos
               canales:
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className={styles.contactMain}>
-            {/* Modal de confirmación */}
-
+          <motion.div
+            className={styles.contactMain}
+            variants={staggerContainer}
+          >
             <div className={styles.contactGrid}>
               {/* Teléfono Santa Fe */}
-              <div
+              <motion.div
                 className={`${styles.contactMethod} ${styles.santaFeMethod}`}
+                variants={cardAnimation}
               >
                 <div className={styles.methodIcon}>
                   <svg
@@ -79,9 +114,11 @@ export default function Contacto() {
                     Atención con cita previa
                   </p>
                   <div className={styles.contactLinks}>
-                    <button
+                    <motion.button
                       onClick={() => copyToClipboard("+5493425923017")}
                       className={styles.contactLink}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -94,12 +131,14 @@ export default function Contacto() {
                         />
                       </svg>
                       +54 9 3425 92-3017
-                    </button>
-                    <a
+                    </motion.button>
+                    <motion.a
                       href="https://wa.me/5493425923017"
                       className={styles.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -112,14 +151,15 @@ export default function Contacto() {
                         />
                       </svg>
                       Enviar mensaje
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Teléfono Entre Ríos */}
-              <div
+              <motion.div
                 className={`${styles.contactMethod} ${styles.entreRiosMethod}`}
+                variants={cardAnimation}
               >
                 <div className={styles.methodIcon}>
                   <svg
@@ -139,9 +179,11 @@ export default function Contacto() {
                     Atención con cita previa
                   </p>
                   <div className={styles.contactLinks}>
-                    <button
+                    <motion.button
                       onClick={() => copyToClipboard("+5493435028426")}
                       className={styles.contactLink}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -154,12 +196,14 @@ export default function Contacto() {
                         />
                       </svg>
                       +54 9 3435 02-8426
-                    </button>
-                    <a
+                    </motion.button>
+                    <motion.a
                       href="https://wa.me/5493435028426"
                       className={styles.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -172,13 +216,16 @@ export default function Contacto() {
                         />
                       </svg>
                       Enviar mensaje
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Email */}
-              <div className={`${styles.contactMethod} ${styles.emailMethod}`}>
+              <motion.div
+                className={`${styles.contactMethod} ${styles.emailMethod}`}
+                variants={cardAnimation}
+              >
                 <div className={styles.methodIcon}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -197,11 +244,13 @@ export default function Contacto() {
                     Envíame tu consulta por correo electrónico y recibirás una
                     respuesta detallada.
                   </p>
-                  <button
+                  <motion.button
                     onClick={() =>
                       copyToClipboard("solucioneslegalescyc@gmail.com", "email")
                     }
                     className={styles.contactLink}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +263,7 @@ export default function Contacto() {
                       />
                     </svg>
                     solucioneslegalescyc@gmail.com
-                  </button>
+                  </motion.button>
                   <p className={styles.responseTime}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -229,28 +278,46 @@ export default function Contacto() {
                     Respuesta en menos de 24h
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Nueva Sección de Modalidades de Consulta */}
-      <section className={styles.consultationTypesSection}>
+      <motion.section
+        className={styles.consultationTypesSection}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={staggerContainer}
+      >
         <div className={styles.consultationContainer}>
-          <div className={styles.consultationHeader}>
-            <h2 className={styles.consultationTitle}>
+          <motion.div
+            className={styles.consultationHeader}
+            variants={staggerContainer}
+          >
+            <motion.h2 className={styles.consultationTitle} variants={fadeUp}>
               Modalidades de Consulta
-            </h2>
-            <div className={styles.goldDivider}></div>
-            <p className={styles.consultationSubtitle}>
+            </motion.h2>
+            <motion.div
+              className={styles.goldDivider}
+              variants={fadeUp}
+            ></motion.div>
+            <motion.p className={styles.consultationSubtitle} variants={fadeUp}>
               Ofrecemos diferentes opciones para adaptarnos a tus necesidades y
               preferencias
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className={styles.consultationOptions}>
-            <div className={styles.consultationOption}>
+          <motion.div
+            className={styles.consultationOptions}
+            variants={staggerContainer}
+          >
+            <motion.div
+              className={styles.consultationOption}
+              variants={cardAnimation}
+            >
               <div className={styles.optionHeader}>
                 <div className={styles.optionIcon}>
                   <svg
@@ -279,9 +346,12 @@ export default function Contacto() {
                   <li>Asesoramiento inmediato</li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.consultationOption}>
+            <motion.div
+              className={styles.consultationOption}
+              variants={cardAnimation}
+            >
               <div className={styles.optionHeader}>
                 <div className={styles.optionIcon}>
                   <svg
@@ -309,26 +379,46 @@ export default function Contacto() {
                   <li>Misma calidad de asesoramiento</li>
                 </ul>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Sección de Ubicaciones */}
-      <section className={styles.locationsSection}>
+      <motion.section
+        className={styles.locationsSection}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={staggerContainer}
+      >
         <div className={styles.locationsContainer}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Oficinas</h2>
-            <div className={styles.goldDivider}></div>
-            <p className={styles.sectionText}>
+          <motion.div
+            className={styles.sectionHeader}
+            variants={staggerContainer}
+          >
+            <motion.h2 className={styles.sectionTitle} variants={fadeUp}>
+              Oficinas
+            </motion.h2>
+            <motion.div
+              className={styles.goldDivider}
+              variants={fadeUp}
+            ></motion.div>
+            <motion.p className={styles.sectionText} variants={fadeUp}>
               Ubicadas estratégicamente para brindarte la mejor atención en las
               provincias de Santa Fe y Entre Ríos
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className={styles.locationsGrid}>
+          <motion.div
+            className={styles.locationsGrid}
+            variants={staggerContainer}
+          >
             {/* Santa Fe */}
-            <div className={styles.locationCard}>
+            <motion.div
+              className={styles.locationCard}
+              variants={cardAnimation}
+            >
               <div className={styles.locationMap}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.552426488588!2d-60.70744268814822!3d-31.646102807287292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9a4ba91d0ff%3A0x6665ed5934c5213f!2sLa%20Rioja%202441%2C%20S3000%20Santa%20Fe%20de%20la%20Vera%20Cruz%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1746243505926!5m2!1ses-419!2sar"
@@ -359,11 +449,13 @@ export default function Contacto() {
                     CP: 3000
                   </p>
                 </div>
-                <a
+                <motion.a
                   href="https://maps.app.goo.gl/Do1iCsJNLiMNmi4y9"
                   className={styles.locationButton}
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -376,12 +468,15 @@ export default function Contacto() {
                     />
                   </svg>
                   Cómo llegar
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
 
             {/* Entre Ríos */}
-            <div className={styles.locationCard}>
+            <motion.div
+              className={styles.locationCard}
+              variants={cardAnimation}
+            >
               <div className={styles.locationMap}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.5901753117632!2d-60.53444210000001!3d-31.7270882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b45262b65f91bb%3A0xca5c1372150eecf8!2sNarciso%20Laprida%20424%2C%20E3100%20Paran%C3%A1%2C%20Entre%20R%C3%ADos!5e0!3m2!1ses-419!2sar!4v1746251117362!5m2!1ses-419!2sar"
@@ -412,11 +507,13 @@ export default function Contacto() {
                     CP: 3100
                   </p>
                 </div>
-                <a
+                <motion.a
                   href="https://maps.app.goo.gl/CHhsjoh2eb9jaSZw6"
                   className={styles.locationButton}
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -429,29 +526,38 @@ export default function Contacto() {
                     />
                   </svg>
                   Cómo llegar
-                </a>
+                </motion.a>
               </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            className={styles.copyModal}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={modalAnimation}
+          >
+            <div className={styles.modalContent}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className={styles.checkIcon}
+              >
+                <path
+                  fill="currentColor"
+                  d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                />
+              </svg>
+              <p>{modalMessage}</p>
             </div>
-          </div>
-        </div>
-      </section>
-      {showModal && (
-        <div className={styles.copyModal}>
-          <div className={styles.modalContent}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={styles.checkIcon}
-            >
-              <path
-                fill="currentColor"
-                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-              />
-            </svg>
-            <p>{modalMessage}</p>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

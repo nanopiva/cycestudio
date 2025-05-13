@@ -4,9 +4,43 @@ import styles from "./page.module.css";
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import CTA from "@/components/Cta";
-import ScrollAnimation from "@/components/ScrollAnimation";
-
+import { motion } from "framer-motion";
 import heroImage from "../../public/tribunales.jpg";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+const fadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeInOut",
+    },
+  },
+};
 
 export default function Landing() {
   useEffect(() => {
@@ -38,12 +72,16 @@ export default function Landing() {
       </section>
 
       {/* Sección de Especialidades Jurídicas */}
-      {/* Sección de Especialidades Jurídicas */}
       <section
         className={`${styles.whiteSection} ${styles.roundedSection} ${styles.smoothTransition}`}
       >
         <div className={styles.container}>
-          <ScrollAnimation>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInVariants}
+          >
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>Nuestro terreno legal</h2>
               <div className={styles.goldDivider}></div>
@@ -52,123 +90,134 @@ export default function Landing() {
                 representación legal
               </p>
             </div>
-          </ScrollAnimation>
+          </motion.div>
 
-          <div className={styles.specialtiesGrid}>
+          <motion.div
+            className={styles.specialtiesGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+          >
             {/* Card 1 */}
-
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={200}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-briefcase"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>
-                    Derecho laboral y ART
-                  </h3>
-                  <p className={styles.specialtyText}>
-                    Asesoramiento a trabajadores y empleadores en todas las
-                    áreas laborales.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-briefcase"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
+                <h3 className={styles.specialtyTitle}>Derecho laboral y ART</h3>
+                <p className={styles.specialtyText}>
+                  Asesoramiento a trabajadores y empleadores en todas las áreas
+                  laborales.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={150}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-car-burst"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>Daños y accidentes</h3>
-                  <p className={styles.specialtyText}>
-                    Representación en casos de tránsito, reclamos por daños y
-                    perjuicios.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-car-burst"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
+                <h3 className={styles.specialtyTitle}>Daños y accidentes</h3>
+                <p className={styles.specialtyText}>
+                  Representación en casos de tránsito, reclamos por daños y
+                  perjuicios.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={100}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-family"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>
-                    Derecho familiar y sucesorio
-                  </h3>
-                  <p className={styles.specialtyText}>
-                    Asesoramiento integral en cuestiones familiares, divorcios,
-                    alimentos y sucesiones.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-family"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
+                <h3 className={styles.specialtyTitle}>
+                  Derecho familiar y sucesorio
+                </h3>
+                <p className={styles.specialtyText}>
+                  Asesoramiento integral en cuestiones familiares, divorcios,
+                  alimentos y sucesiones.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Card 4 */}
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={250}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-building"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>
-                    Asesoría empresarial
-                  </h3>
-                  <p className={styles.specialtyText}>
-                    Constitución de sociedades, registros de marca y protección
-                    legal de negocios.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-building"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
+                <h3 className={styles.specialtyTitle}>Asesoría empresarial</h3>
+                <p className={styles.specialtyText}>
+                  Constitución de sociedades, registros de marca y protección
+                  legal de negocios.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Card 5 */}
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={300}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-gavel"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>Defensa penal</h3>
-                  <p className={styles.specialtyText}>
-                    Representación en procesos penales y asesoramiento en
-                    situaciones urgentes.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-gavel"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
+                <h3 className={styles.specialtyTitle}>Defensa penal</h3>
+                <p className={styles.specialtyText}>
+                  Representación en procesos penales y asesoramiento en
+                  situaciones urgentes.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Card 6 */}
-            <div className={styles.specialtyCard}>
-              <ScrollAnimation delay={350}>
-                <div className={styles.specialtyContent}>
-                  <div className={styles.specialtyIcon}>
-                    <i className="fas fa-file-contract"></i>
-                  </div>
-                  <h3 className={styles.specialtyTitle}>
-                    Asesoría legal integral
-                  </h3>
-                  <p className={styles.specialtyText}>
-                    Documentación legal, contratos y soluciones personalizadas
-                    para cada necesidad.
-                  </p>
+            <motion.div
+              className={styles.specialtyCard}
+              variants={itemVariants}
+            >
+              <div className={styles.specialtyContent}>
+                <div className={styles.specialtyIcon}>
+                  <i className="fas fa-file-contract"></i>
                 </div>
-              </ScrollAnimation>
-            </div>
-          </div>
+                <h3 className={styles.specialtyTitle}>
+                  Asesoría legal integral
+                </h3>
+                <p className={styles.specialtyText}>
+                  Documentación legal, contratos y soluciones personalizadas
+                  para cada necesidad.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
 
-          <div className={styles.specialtiesCta}>
-            <ScrollAnimation delay={400}>
-              <a href="/areas" className={styles.primaryButton}>
-                Ver todas las áreas de práctica
-                <i className="fas fa-arrow-right"></i>
-              </a>
-            </ScrollAnimation>
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInVariants}
+            className={styles.specialtiesCta}
+          >
+            <a href="/areas" className={styles.primaryButton}>
+              Ver todas las áreas de práctica
+              <i className="fas fa-arrow-right"></i>
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -177,8 +226,14 @@ export default function Landing() {
         className={`${styles.imageTextSection} ${styles.goldSectionTransition}`}
       >
         <div className={styles.imageHalf}></div>
-        <div className={styles.textHalf}>
-          <ScrollAnimation>
+        <motion.div
+          className={styles.textHalf}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants}>
             <h2 className={styles.sectionTitle}>
               Conocer tus derechos es defenderlos
             </h2>
@@ -196,8 +251,8 @@ export default function Landing() {
               Descubre cómo podemos ayudarte{" "}
               <i className="fas fa-arrow-right"></i>
             </a>
-          </ScrollAnimation>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Sección de Enfoque Profesional */}
@@ -206,44 +261,56 @@ export default function Landing() {
       >
         <div className={styles.container}>
           <div className={styles.professionalContent}>
-            <ScrollAnimation>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInVariants}
+            >
               <h2 className={styles.sectionTitle}>
                 Derecho sin complicaciones: claridad desde el primer día
               </h2>
               <div className={styles.goldDivider}></div>
-            </ScrollAnimation>
-            <div className={styles.professionalColumns}>
-              <ScrollAnimation delay={200}>
-                <div className={styles.professionalText}>
-                  <p className={styles.sectionText}>
-                    Entendemos que enfrentarse a un tema legal puede ser
-                    abrumador. Por eso nos ocupamos de que comprendas cada etapa
-                    del proceso con explicaciones sencillas, sin perder el rigor
-                    profesional.
-                  </p>
-                  <p className={styles.sectionText}>
-                    No creemos en respuestas genéricas. Analizamos tu situación
-                    particular para ofrecerte opciones reales, con plazos y
-                    costos transparentes desde el inicio.
-                  </p>
-                </div>
-              </ScrollAnimation>
-              <ScrollAnimation delay={400}>
-                <div className={styles.professionalText}>
-                  <p className={styles.sectionText}>
-                    Nuestra prioridad es que tomes decisiones informadas, con la
-                    tranquilidad de contar con representación jurídica
-                    experimentada.
-                  </p>
-                  <p className={styles.sectionText}>
-                    Como profesionales del derecho, asumimos tu caso con
-                    seriedad y dedicación absoluta. Te mantenemos informado en
-                    cada etapa decisiva y estamos disponibles para responder tus
-                    consultas.
-                  </p>
-                </div>
-              </ScrollAnimation>
-            </div>
+            </motion.div>
+            <motion.div
+              className={styles.professionalColumns}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+            >
+              <motion.div
+                className={styles.professionalText}
+                variants={itemVariants}
+              >
+                <p className={styles.sectionText}>
+                  Entendemos que enfrentarse a un tema legal puede ser
+                  abrumador. Por eso nos ocupamos de que comprendas cada etapa
+                  del proceso con explicaciones sencillas, sin perder el rigor
+                  profesional.
+                </p>
+                <p className={styles.sectionText}>
+                  No creemos en respuestas genéricas. Analizamos tu situación
+                  particular para ofrecerte opciones reales, con plazos y costos
+                  transparentes desde el inicio.
+                </p>
+              </motion.div>
+              <motion.div
+                className={styles.professionalText}
+                variants={itemVariants}
+              >
+                <p className={styles.sectionText}>
+                  Nuestra prioridad es que tomes decisiones informadas, con la
+                  tranquilidad de contar con representación jurídica
+                  experimentada.
+                </p>
+                <p className={styles.sectionText}>
+                  Como profesionales del derecho, asumimos tu caso con seriedad
+                  y dedicación absoluta. Te mantenemos informado en cada etapa
+                  decisiva y estamos disponibles para responder tus consultas.
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -252,7 +319,12 @@ export default function Landing() {
         className={`${styles.socialTipsSection} ${styles.paperSectionTransition} ${styles.smoothTransition}`}
       >
         <div className={styles.container}>
-          <ScrollAnimation>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInVariants}
+          >
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>
                 ¿Sabías que tus dudas legales tienen respuesta?
@@ -264,116 +336,125 @@ export default function Landing() {
                 consultas que respondemos regularmente:
               </p>
             </div>
-          </ScrollAnimation>
+          </motion.div>
 
-          <div className={styles.tipsGrid}>
-            <ScrollAnimation delay={100}>
-              <div className={styles.tipCard}>
-                <div className={styles.tipIcon}>
-                  <i className="fas fa-car-crash"></i>
-                </div>
-                <h3 className={styles.tipTitle}>
-                  Sufrí un accidente laboral, ¿ahora qué hago?
-                </h3>
-                <p className={styles.tipText}>
-                  La ART tiene la obligación de cubrir tus gastos, salario e
-                  indemnización.
-                </p>
-                <a
-                  href="https://www.instagram.com/reel/C7AvgSfut9g/?igsh=MTM3OWpoOGFza2U2ZQ=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.tipLink}
-                >
-                  Ver video explicativo{" "}
-                  <i className="fas fa-external-link-alt"></i>
-                </a>
+          <motion.div
+            className={styles.tipsGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+          >
+            <motion.div className={styles.tipCard} variants={itemVariants}>
+              <div className={styles.tipIcon}>
+                <i className="fas fa-car-crash"></i>
               </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation delay={200}>
-              <div className={styles.tipCard}>
-                <div className={styles.tipIcon}>
-                  <i className="fas fa-handshake"></i>
-                </div>
-                <h3 className={styles.tipTitle}>
-                  Soy Uber. ¿El seguro me cubre en caso de accidente?
-                </h3>
-                <p className={styles.tipText}>
-                  El seguro común y corriente no te cubre. Para estar asegurado
-                  en caso de accidentes debes contratar un seguro comercial.
-                </p>
-                <a
-                  href="https://www.instagram.com/reel/DGjj-7puvIq/?igsh=MWN4Nm16bDRpY2dlMQ=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.tipLink}
-                >
-                  Ver video explicativo{" "}
-                  <i className="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation delay={300}>
-              <div className={styles.tipCard}>
-                <div className={styles.tipIcon}>
-                  <i className="fas fa-home-heart"></i>
-                </div>
-                <h3 className={styles.tipTitle}>
-                  ¿Las compañías aseguradoras pagan más cuando tenes abogado?
-                </h3>
-                <p className={styles.tipText}>
-                  Las aseguradoras ofertan siempre el monto más bajo posible. En
-                  la mayoría de los casos, asesorarte con un abogado mejorará
-                  significativamente sus propuestas.
-                </p>
-                <a
-                  href="https://www.instagram.com/reel/DElgPDbuYkh/?igsh=dDZwdDMxNXJlZnpr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.tipLink}
-                >
-                  Ver video explicativo{" "}
-                  <i className="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </ScrollAnimation>
-          </div>
-
-          <ScrollAnimation delay={400}>
-            <div className={styles.socialCta}>
-              <p className={styles.socialText}>
-                Resolvemos muchas más dudas legales cada semana en nuestra
-                cuenta de Instagram:
+              <h3 className={styles.tipTitle}>
+                Sufrí un accidente laboral, ¿ahora qué hago?
+              </h3>
+              <p className={styles.tipText}>
+                La ART tiene la obligación de cubrir tus gastos, salario e
+                indemnización.
               </p>
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://www.instagram.com/cyc.solucioneslegales/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialButton}
-                >
-                  <i className="fab fa-instagram"></i> @C&CSolucionesLegales
-                </a>
+              <a
+                href="https://www.instagram.com/reel/C7AvgSfut9g/?igsh=MTM3OWpoOGFza2U2ZQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.tipLink}
+              >
+                Ver video explicativo{" "}
+                <i className="fas fa-external-link-alt"></i>
+              </a>
+            </motion.div>
+
+            <motion.div className={styles.tipCard} variants={itemVariants}>
+              <div className={styles.tipIcon}>
+                <i className="fas fa-handshake"></i>
               </div>
-              <p className={styles.socialInvitation}>
-                ¡Seguinos para no perderte ninguna de nuestras respuestas a tus
-                inquietudes legales!
+              <h3 className={styles.tipTitle}>
+                Soy Uber. ¿El seguro me cubre en caso de accidente?
+              </h3>
+              <p className={styles.tipText}>
+                El seguro común y corriente no te cubre. Para estar asegurado en
+                caso de accidentes debes contratar un seguro comercial.
               </p>
+              <a
+                href="https://www.instagram.com/reel/DGjj-7puvIq/?igsh=MWN4Nm16bDRpY2dlMQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.tipLink}
+              >
+                Ver video explicativo{" "}
+                <i className="fas fa-external-link-alt"></i>
+              </a>
+            </motion.div>
+
+            <motion.div className={styles.tipCard} variants={itemVariants}>
+              <div className={styles.tipIcon}>
+                <i className="fas fa-home-heart"></i>
+              </div>
+              <h3 className={styles.tipTitle}>
+                ¿Las compañías aseguradoras pagan más cuando tenes abogado?
+              </h3>
+              <p className={styles.tipText}>
+                Las aseguradoras ofertan siempre el monto más bajo posible. En
+                la mayoría de los casos, asesorarte con un abogado mejorará
+                significativamente sus propuestas.
+              </p>
+              <a
+                href="https://www.instagram.com/reel/DElgPDbuYkh/?igsh=dDZwdDMxNXJlZnpr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.tipLink}
+              >
+                Ver video explicativo{" "}
+                <i className="fas fa-external-link-alt"></i>
+              </a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInVariants}
+            className={styles.socialCta}
+          >
+            <p className={styles.socialText}>
+              Resolvemos muchas más dudas legales cada semana en nuestra cuenta
+              de Instagram:
+            </p>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://www.instagram.com/cyc.solucioneslegales/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialButton}
+              >
+                <i className="fab fa-instagram"></i> @C&CSolucionesLegales
+              </a>
             </div>
-          </ScrollAnimation>
+            <p className={styles.socialInvitation}>
+              ¡Seguinos para no perderte ninguna de nuestras respuestas a tus
+              inquietudes legales!
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Final */}
-      <ScrollAnimation>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInVariants}
+      >
         <CTA
           title="¿Necesitas asesoramiento legal personalizado?"
           description="Agenda una consulta inicial para evaluar tu caso"
           buttonText="Contactar ahora"
         />
-      </ScrollAnimation>
+      </motion.div>
     </div>
   );
 }
