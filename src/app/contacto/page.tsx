@@ -28,15 +28,22 @@ const cardAnimation = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
 };
 
-const modalAnimation = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -10 },
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function Contacto() {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const copyToClipboard = (text: string, type: "phone" | "email" = "phone") => {
     navigator.clipboard.writeText(text);
@@ -44,9 +51,62 @@ export default function Contacto() {
       type === "phone" ? "¡Número copiado!" : "¡Correo electrónico copiado!"
     );
     setShowModal(true);
-    setTimeout(() => setShowModal(false), 2000);
+    setTimeout(() => setShowModal(false), 3000); // Cambiado de 5000 a 3000 (3 segundos)
   };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/solucioneslegalescyc@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...Object.fromEntries(formData),
+            _captcha: "false",
+            _next: window.location.href,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success === "true") {
+        setModalMessage(
+          "Formulario enviado correctamente. Su consulta será respondida a la brevedad!"
+        );
+        setShowModal(true);
+        setTimeout(() => setShowModal(false), 7000); // Cambiado de 5000 a 7000 (7 segundos)
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error(
+          data.message || "Error desconocido al enviar el formulario"
+        );
+      }
+    } catch (error) {
+      console.error("Error al enviar formulario:", error);
+      setModalMessage(
+        error instanceof Error
+          ? error.message
+          : "Hubo un error al enviar el formulario. Por favor intente nuevamente."
+      );
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 7000); // Cambiado de 5000 a 7000 (7 segundos)
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className={styles.body}>
       {/* Hero Section */}
@@ -81,7 +141,7 @@ export default function Contacto() {
               variants={fadeUp}
             ></motion.div>
             <motion.p className={styles.sectionText} variants={fadeUp}>
-              Estoy disponible para atender tu consulta a través de estos
+              Estamos disponibles para atender tu consulta a través de estos
               canales:
             </motion.p>
           </motion.div>
@@ -241,7 +301,7 @@ export default function Contacto() {
                 <div className={styles.methodContent}>
                   <h3>Correo electrónico</h3>
                   <p className={styles.methodDescription}>
-                    Envíame tu consulta por correo electrónico y recibirás una
+                    Envianos tu consulta por correo electrónico y recibirás una
                     respuesta detallada.
                   </p>
                   <motion.button
@@ -532,15 +592,129 @@ export default function Contacto() {
           </motion.div>
         </div>
       </motion.section>
+      {/* Sección de Formulario de Contacto */}
+      <motion.section
+        className={styles.formSection}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={sectionVariants}
+      >
+        <div className={styles.formContainer}>
+          <motion.div className={styles.formHeader} variants={fadeUp}>
+            <h2 className={styles.formTitle}>Envianos tu consulta</h2>
+            <div className={styles.goldDivider}></div>
+            <p className={styles.formSubtitle}>
+              Completa el formulario y nos pondremos en contacto contigo a la
+              brevedad
+            </p>
+          </motion.div>
+
+          <form onSubmit={handleSubmit} className={styles.contactForm}>
+            <input type="hidden" name="_captcha" value="false" />
+
+            {/* Campos del formulario se mantienen igual */}
+            <motion.div className={styles.formGroup} variants={fadeUp}>
+              <label htmlFor="name" className={styles.formLabel}>
+                Nombre completo*
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className={styles.formInput}
+                required
+              />
+            </motion.div>
+
+            <motion.div className={styles.formGroup} variants={fadeUp}>
+              <label htmlFor="email" className={styles.formLabel}>
+                Correo electrónico*
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className={styles.formInput}
+                required
+              />
+            </motion.div>
+
+            <motion.div className={styles.formGroup} variants={fadeUp}>
+              <label htmlFor="phone" className={styles.formLabel}>
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                className={styles.formInput}
+              />
+            </motion.div>
+
+            <motion.div className={styles.formGroup} variants={fadeUp}>
+              <label htmlFor="subject" className={styles.formLabel}>
+                Asunto
+              </label>
+              <select id="subject" name="subject" className={styles.formSelect}>
+                <option value="">Selecciona un asunto</option>
+                <option value="Consulta laboral">Consulta laboral</option>
+                <option value="Consulta daños y perjuicios">
+                  Consulta daños y perjuicios
+                </option>
+                <option value="Consulta derecho de familia">
+                  Consulta derecho de familia/sucesiones
+                </option>
+                <option value="Consulta penal">Consulta penal</option>
+                <option value="Consulta comercial">Consulta comercial</option>
+                <option value="Otra consulta">Otra consulta</option>
+              </select>
+            </motion.div>
+
+            <motion.div className={styles.formGroup} variants={fadeUp}>
+              <label htmlFor="message" className={styles.formLabel}>
+                Mensaje*
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                className={styles.formTextarea}
+                required
+              ></textarea>
+            </motion.div>
+
+            <motion.button
+              type="submit"
+              className={styles.submitButton}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              variants={fadeUp}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Enviando..." : "Enviar consulta"}
+            </motion.button>
+          </form>
+        </div>
+      </motion.section>
 
       <AnimatePresence>
         {showModal && (
           <motion.div
             className={styles.copyModal}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={modalAnimation}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            style={{
+              position: "fixed",
+              left: "50%",
+              bottom: "20px",
+              x: "-50%", // Esto evita el conflicto con transform de Framer Motion
+            }}
           >
             <div className={styles.modalContent}>
               <svg
@@ -555,6 +729,15 @@ export default function Contacto() {
               </svg>
               <p>{modalMessage}</p>
             </div>
+            <div
+              className={styles.progressBar}
+              key={modalMessage}
+              style={{
+                animationDuration: `${
+                  modalMessage.includes("Formulario") ? "7s" : "3s"
+                }`,
+              }}
+            />
           </motion.div>
         )}
       </AnimatePresence>
