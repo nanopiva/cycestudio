@@ -86,7 +86,7 @@ export default function Nosotros() {
           className={styles.section}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }} // Ajuste clave aquí
           variants={sectionVariants}
         >
           <motion.h2 className={styles.sectionTitle} variants={itemVariants}>
@@ -101,7 +101,7 @@ export default function Nosotros() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "0px 0px -50px 0px" }} // Ajuste clave aquí
           >
             <motion.p variants={itemVariants}>
               En <strong>C&C Soluciones Legales</strong>, hemos desarrollado una

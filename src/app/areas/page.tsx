@@ -5,6 +5,15 @@ import Hero from "@/components/Hero";
 import areasHero from "../../../public/areasHero.jpg";
 import CTA from "@/components/Cta";
 import { motion } from "framer-motion";
+// Importaciones de react-icons
+import {
+  FaBriefcase,
+  FaGavel,
+  FaBuilding,
+  FaFileContract,
+  FaUsers,
+  FaCarCrash,
+} from "react-icons/fa";
 
 // Animation variants
 const containerVariants = {
@@ -95,7 +104,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-briefcase"></i>
+                <FaBriefcase />
               </div>
               <h3 className={styles.specialtyTitle}>Derecho laboral</h3>
             </div>
@@ -138,7 +147,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-car-burst"></i>
+                <FaCarCrash />
               </div>
               <h3 className={styles.specialtyTitle}>Daños y perjuicios</h3>
             </div>
@@ -179,7 +188,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-family"></i>
+                <FaUsers />
               </div>
               <h3 className={styles.specialtyTitle}>
                 Derecho de familia y sucesiones
@@ -224,7 +233,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-gavel"></i>
+                <FaGavel />
               </div>
               <h3 className={styles.specialtyTitle}>Derecho penal</h3>
             </div>
@@ -267,7 +276,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-building"></i>
+                <FaBuilding />
               </div>
               <h3 className={styles.specialtyTitle}>
                 Derecho comercial y empresarial
@@ -312,7 +321,7 @@ export default function AreasEspecialidad() {
           >
             <div className={styles.specialtyHeader}>
               <div className={styles.specialtyIcon}>
-                <i className="fas fa-file-contract"></i>
+                <FaFileContract />
               </div>
               <h3 className={styles.specialtyTitle}>Otras áreas de práctica</h3>
             </div>

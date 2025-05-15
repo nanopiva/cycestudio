@@ -68,15 +68,18 @@
 .specialtyHeader {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .specialtyIcon {
-  font-size: 2rem; /* Icon size */
+  font-size: 1.5rem;
   color: var(--color-secondary);
-  min-width: 40px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .specialtyTitle {
@@ -225,7 +228,7 @@
   }
 
   .specialtyIcon {
-    font-size: 2.25rem; /* Larger icons for desktops */
+    font-size: 1.8rem; /* Larger icons for desktops */
   }
 
   .specialtyDescription,
@@ -243,5 +246,40 @@
 
   .specialtyDescription {
     max-width: 80%; /* Constrain width for better readability */
+  }
+}
+
+@media (max-width: 767px) {
+  .specialtyHeader {
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+  .specialtyContent {
+    padding: 0;
+  }
+  .caseList {
+    padding: 0 1.5rem;
+  }
+
+  .sectionText,
+  .specialtyDescription {
+    text-align: left;
+    padding: 0 0.5rem;
+    word-wrap: break-word;
+    hyphens: auto;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+  .sectionText {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .specialtyDescription {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
   }
 }
