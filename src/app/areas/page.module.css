@@ -1,9 +1,9 @@
-/* Estilos Base */
+/* Base */
 .body {
   font-family: "Lora", serif;
   color: var(--color-gray-800);
   line-height: 1.6;
-  font-size: 1rem; /* Base font size */
+  font-size: 1rem;
 }
 
 .container {
@@ -12,6 +12,7 @@
   padding: 0 2rem;
 }
 
+/* Hero*/
 .heroContainer {
   position: relative;
   display: flex;
@@ -20,7 +21,7 @@
   overflow: hidden;
 }
 
-/* Sección Blanca */
+/* White  */
 .whiteSection {
   padding: 6rem 0;
   background-color: white;
@@ -33,7 +34,7 @@
 }
 
 .sectionTitle {
-  font-size: 1.75rem; /* Larger heading for mobile */
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-primary-dark);
   margin-bottom: 1.5rem;
@@ -41,7 +42,7 @@
 }
 
 .sectionText {
-  font-size: 1.125rem; /* Larger than body text to function as subtitle */
+  font-size: 1.125rem;
   color: var(--color-gray-700);
   margin-bottom: 2rem;
   line-height: 1.8;
@@ -83,7 +84,7 @@
 }
 
 .specialtyTitle {
-  font-size: 1.25rem; /* Specialty title */
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-primary-dark);
   margin: 0;
@@ -97,9 +98,10 @@
   margin-bottom: 1.5rem;
   color: var(--color-gray-700);
   line-height: 1.7;
-  font-size: 1rem; /* Regular text */
+  font-size: 1rem;
 }
 
+/* Casos */
 .caseList {
   columns: 1;
   gap: 2rem;
@@ -114,7 +116,7 @@
   position: relative;
   padding-left: 1.5rem;
   color: var(--color-gray-700);
-  font-size: 1rem; /* Regular text */
+  font-size: 1rem;
 }
 
 .caseList li::before {
@@ -128,7 +130,7 @@
   border-radius: 50%;
 }
 
-/* CTA */
+/* CTA  */
 .areasCta {
   text-align: center;
   margin-top: 5rem;
@@ -139,13 +141,13 @@
 }
 
 .ctaTitle {
-  font-size: 1.75rem; /* Same as section title */
+  font-size: 1.75rem;
   color: var(--color-primary-dark);
   margin-bottom: 1rem;
 }
 
 .ctaText {
-  font-size: 1.125rem; /* Same as section text */
+  font-size: 1.125rem;
   color: var(--color-gray-700);
   margin-bottom: 2rem;
   max-width: 700px;
@@ -164,7 +166,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1rem; /* Button text */
+  font-size: 1rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -174,78 +176,78 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Media Queries - Streamlined for essential breakpoints only */
+/* Responsive */
 @media (min-width: 768px) {
   .body {
-    font-size: 1.0625rem; /* Slightly larger base font for tablets */
+    font-size: 1.0625rem;
   }
 
   .sectionTitle,
   .ctaTitle {
-    font-size: 2.25rem; /* Larger heading for tablets */
+    font-size: 2.25rem;
   }
 
   .sectionText,
   .ctaText {
-    font-size: 1.25rem; /* Larger subtitle for tablets */
+    font-size: 1.25rem;
   }
 
   .specialtyTitle {
-    font-size: 1.375rem; /* Larger specialty title for tablets */
+    font-size: 1.375rem;
   }
 
   .specialtyDescription,
   .caseList li {
-    font-size: 1.0625rem; /* Slightly larger text for tablets */
+    font-size: 1.0625rem;
   }
 
   .primaryButton {
-    font-size: 1.0625rem; /* Slightly larger button text for tablets */
+    font-size: 1.0625rem;
   }
 
   .caseList {
-    columns: 2; /* Two columns for tablets */
+    columns: 2;
   }
 }
 
 @media (min-width: 1024px) {
   .body {
-    font-size: 1.125rem; /* Larger base font for desktops */
+    font-size: 1.125rem;
   }
 
   .sectionTitle,
   .ctaTitle {
-    font-size: 2.5rem; /* Larger heading for desktops */
+    font-size: 2.5rem;
   }
 
   .sectionText,
   .ctaText {
-    font-size: 1.375rem; /* Larger subtitle for desktops */
+    font-size: 1.375rem;
   }
 
   .specialtyTitle {
-    font-size: 1.5rem; /* Larger specialty title for desktops */
+    font-size: 1.5rem;
   }
 
   .specialtyIcon {
-    font-size: 1.8rem; /* Larger icons for desktops */
+    font-size: 1.8rem;
   }
 
   .specialtyDescription,
   .caseList li {
-    font-size: 1.125rem; /* Larger text for desktops */
+    font-size: 1.125rem;
   }
 
   .primaryButton {
-    font-size: 1.125rem; /* Larger button text for desktops */
+    font-size: 1.125rem;
   }
 
   .caseList {
-    columns: 3; /* Three columns for desktops */
+    columns: 3;
   }
 
   .specialtyDescription {
-    max-width: 80%; /* Constrain width for better readability */
+    max-width: 80%;
   }
 }
 
@@ -254,9 +256,11 @@
     justify-content: center;
     margin: 0 auto 1.5rem;
   }
+
   .specialtyContent {
     padding: 0;
   }
+
   .caseList {
     padding: 0 1.5rem;
   }
@@ -267,16 +271,16 @@
     padding: 0 0.5rem;
     word-wrap: break-word;
     hyphens: auto;
-    word-spacing: normal;
-    letter-spacing: normal;
     line-height: 1.6;
     max-width: 100%;
   }
+
   .sectionText {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   .specialtyDescription {
     margin-left: auto;
     margin-right: auto;

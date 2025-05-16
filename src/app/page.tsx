@@ -7,7 +7,6 @@ import CTA from "@/components/Cta";
 import { motion } from "framer-motion";
 import heroImage from "../../public/tribunales.jpg";
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -71,7 +70,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Sección de Especialidades Jurídicas */}
+      {/* Especialidades Jurídicas */}
       <section
         className={`${styles.whiteSection} ${styles.roundedSection} ${styles.smoothTransition}`}
       >
@@ -99,111 +98,52 @@ export default function Landing() {
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
           >
-            {/* Card 1 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-briefcase"></i>
+            {[
+              {
+                icon: "fas fa-briefcase",
+                title: "Derecho laboral y ART",
+                text: "Asesoramiento a trabajadores y empleadores en todas las áreas laborales.",
+              },
+              {
+                icon: "fas fa-car-burst",
+                title: "Daños y accidentes",
+                text: "Representación en casos de tránsito, reclamos por daños y perjuicios.",
+              },
+              {
+                icon: "fas fa-family",
+                title: "Derecho familiar y sucesorio",
+                text: "Asesoramiento integral en cuestiones familiares, divorcios, alimentos y sucesiones.",
+              },
+              {
+                icon: "fas fa-building",
+                title: "Asesoría empresarial",
+                text: "Constitución de sociedades, registros de marca y protección legal de negocios.",
+              },
+              {
+                icon: "fas fa-gavel",
+                title: "Defensa penal",
+                text: "Representación en procesos penales y asesoramiento en situaciones urgentes.",
+              },
+              {
+                icon: "fas fa-file-contract",
+                title: "Asesoría legal integral",
+                text: "Documentación legal, contratos y soluciones personalizadas para cada necesidad.",
+              },
+            ].map((specialty, index) => (
+              <motion.div
+                key={index}
+                className={styles.specialtyCard}
+                variants={itemVariants}
+              >
+                <div className={styles.specialtyContent}>
+                  <div className={styles.specialtyIcon}>
+                    <i className={specialty.icon}></i>
+                  </div>
+                  <h3 className={styles.specialtyTitle}>{specialty.title}</h3>
+                  <p className={styles.specialtyText}>{specialty.text}</p>
                 </div>
-                <h3 className={styles.specialtyTitle}>Derecho laboral y ART</h3>
-                <p className={styles.specialtyText}>
-                  Asesoramiento a trabajadores y empleadores en todas las áreas
-                  laborales.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-car-burst"></i>
-                </div>
-                <h3 className={styles.specialtyTitle}>Daños y accidentes</h3>
-                <p className={styles.specialtyText}>
-                  Representación en casos de tránsito, reclamos por daños y
-                  perjuicios.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-family"></i>
-                </div>
-                <h3 className={styles.specialtyTitle}>
-                  Derecho familiar y sucesorio
-                </h3>
-                <p className={styles.specialtyText}>
-                  Asesoramiento integral en cuestiones familiares, divorcios,
-                  alimentos y sucesiones.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 4 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-building"></i>
-                </div>
-                <h3 className={styles.specialtyTitle}>Asesoría empresarial</h3>
-                <p className={styles.specialtyText}>
-                  Constitución de sociedades, registros de marca y protección
-                  legal de negocios.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 5 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-gavel"></i>
-                </div>
-                <h3 className={styles.specialtyTitle}>Defensa penal</h3>
-                <p className={styles.specialtyText}>
-                  Representación en procesos penales y asesoramiento en
-                  situaciones urgentes.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 6 */}
-            <motion.div
-              className={styles.specialtyCard}
-              variants={itemVariants}
-            >
-              <div className={styles.specialtyContent}>
-                <div className={styles.specialtyIcon}>
-                  <i className="fas fa-file-contract"></i>
-                </div>
-                <h3 className={styles.specialtyTitle}>
-                  Asesoría legal integral
-                </h3>
-                <p className={styles.specialtyText}>
-                  Documentación legal, contratos y soluciones personalizadas
-                  para cada necesidad.
-                </p>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
 
           <motion.div
@@ -255,7 +195,7 @@ export default function Landing() {
         </motion.div>
       </section>
 
-      {/* Sección de Enfoque Profesional */}
+      {/* Enfoque Profesional */}
       <section
         className={`${styles.professionalApproach} ${styles.darkSectionTransition} ${styles.darkSmoothTransition}`}
       >
@@ -315,6 +255,7 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Consejos Legales */}
       <section
         className={`${styles.socialTipsSection} ${styles.paperSectionTransition} ${styles.smoothTransition}`}
       >
@@ -332,8 +273,7 @@ export default function Landing() {
               <div className={styles.goldDivider}></div>
               <p className={styles.sectionSubtitle}>
                 En nuestras redes sociales resolvemos preguntas frecuentes en
-                formato claro y accesible. Estas son solo algunas de las muchas
-                consultas que respondemos regularmente:
+                formato claro y accesible.
               </p>
             </div>
           </motion.div>
@@ -345,72 +285,48 @@ export default function Landing() {
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
           >
-            <motion.div className={styles.tipCard} variants={itemVariants}>
-              <div className={styles.tipIcon}>
-                <i className="fas fa-car-crash"></i>
-              </div>
-              <h3 className={styles.tipTitle}>
-                Sufrí un accidente laboral, ¿ahora qué hago?
-              </h3>
-              <p className={styles.tipText}>
-                La ART tiene la obligación de cubrir tus gastos, salario e
-                indemnización.
-              </p>
-              <a
-                href="https://www.instagram.com/reel/C7AvgSfut9g/?igsh=MTM3OWpoOGFza2U2ZQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.tipLink}
+            {[
+              {
+                icon: "fas fa-car-crash",
+                title: "Sufrí un accidente laboral, ¿ahora qué hago?",
+                text: "La ART tiene la obligación de cubrir tus gastos, salario e indemnización.",
+                link: "https://www.instagram.com/reel/C7AvgSfut9g/?igsh=MTM3OWpoOGFza2U2ZQ==",
+              },
+              {
+                icon: "fas fa-handshake",
+                title: "Soy Uber. ¿El seguro me cubre en caso de accidente?",
+                text: "El seguro común y corriente no te cubre. Para estar asegurado en caso de accidentes debes contratar un seguro comercial.",
+                link: "https://www.instagram.com/reel/DGjj-7puvIq/?igsh=MWN4Nm16bDRpY2dlMQ==",
+              },
+              {
+                icon: "fas fa-home-heart",
+                title:
+                  "¿Las compañías aseguradoras pagan más cuando tenes abogado?",
+                text: "Las aseguradoras ofertan siempre el monto más bajo posible. En la mayoría de los casos, asesorarte con un abogado mejorará significativamente sus propuestas.",
+                link: "https://www.instagram.com/reel/DElgPDbuYkh/?igsh=dDZwdDMxNXJlZnpr",
+              },
+            ].map((tip, index) => (
+              <motion.div
+                key={index}
+                className={styles.tipCard}
+                variants={itemVariants}
               >
-                Ver video explicativo{" "}
-                <i className="fas fa-external-link-alt"></i>
-              </a>
-            </motion.div>
-
-            <motion.div className={styles.tipCard} variants={itemVariants}>
-              <div className={styles.tipIcon}>
-                <i className="fas fa-handshake"></i>
-              </div>
-              <h3 className={styles.tipTitle}>
-                Soy Uber. ¿El seguro me cubre en caso de accidente?
-              </h3>
-              <p className={styles.tipText}>
-                El seguro común y corriente no te cubre. Para estar asegurado en
-                caso de accidentes debes contratar un seguro comercial.
-              </p>
-              <a
-                href="https://www.instagram.com/reel/DGjj-7puvIq/?igsh=MWN4Nm16bDRpY2dlMQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.tipLink}
-              >
-                Ver video explicativo{" "}
-                <i className="fas fa-external-link-alt"></i>
-              </a>
-            </motion.div>
-
-            <motion.div className={styles.tipCard} variants={itemVariants}>
-              <div className={styles.tipIcon}>
-                <i className="fas fa-home-heart"></i>
-              </div>
-              <h3 className={styles.tipTitle}>
-                ¿Las compañías aseguradoras pagan más cuando tenes abogado?
-              </h3>
-              <p className={styles.tipText}>
-                Las aseguradoras ofertan siempre el monto más bajo posible. En
-                la mayoría de los casos, asesorarte con un abogado mejorará
-                significativamente sus propuestas.
-              </p>
-              <a
-                href="https://www.instagram.com/reel/DElgPDbuYkh/?igsh=dDZwdDMxNXJlZnpr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.tipLink}
-              >
-                Ver video explicativo{" "}
-                <i className="fas fa-external-link-alt"></i>
-              </a>
-            </motion.div>
+                <div className={styles.tipIcon}>
+                  <i className={tip.icon}></i>
+                </div>
+                <h3 className={styles.tipTitle}>{tip.title}</h3>
+                <p className={styles.tipText}>{tip.text}</p>
+                <a
+                  href={tip.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.tipLink}
+                >
+                  Ver video explicativo{" "}
+                  <i className="fas fa-external-link-alt"></i>
+                </a>
+              </motion.div>
+            ))}
           </motion.div>
 
           <motion.div
@@ -434,10 +350,6 @@ export default function Landing() {
                 <i className="fab fa-instagram"></i> @C&CSolucionesLegales
               </a>
             </div>
-            <p className={styles.socialInvitation}>
-              ¡Seguinos para no perderte ninguna de nuestras respuestas a tus
-              inquietudes legales!
-            </p>
           </motion.div>
         </div>
       </section>

@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import areasHero from "../../../public/areasHero.jpg";
 import CTA from "@/components/Cta";
 import { motion } from "framer-motion";
-// Importaciones de react-icons
 import {
   FaBriefcase,
   FaGavel,
@@ -65,7 +64,6 @@ const sectionVariants = {
 export default function AreasEspecialidad() {
   return (
     <div className={styles.body}>
-      {/* Hero Section */}
       <section className={styles.heroContainer}>
         <div className={styles.container}>
           <Hero
@@ -76,7 +74,6 @@ export default function AreasEspecialidad() {
         </div>
       </section>
 
-      {/* Sección de Especialidades */}
       <section className={styles.whiteSection}>
         <div className={styles.container}>
           <motion.div
@@ -94,7 +91,6 @@ export default function AreasEspecialidad() {
             </p>
           </motion.div>
 
-          {/* Derecho Laboral */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"
@@ -137,7 +133,6 @@ export default function AreasEspecialidad() {
             </motion.div>
           </motion.div>
 
-          {/* Daños y Perjuicios */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"
@@ -178,7 +173,6 @@ export default function AreasEspecialidad() {
             </motion.div>
           </motion.div>
 
-          {/* Derecho de Familia */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"
@@ -223,7 +217,6 @@ export default function AreasEspecialidad() {
             </motion.div>
           </motion.div>
 
-          {/* Derecho Penal */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"
@@ -266,7 +259,6 @@ export default function AreasEspecialidad() {
             </motion.div>
           </motion.div>
 
-          {/* Derecho Comercial y Empresarial */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"
@@ -311,7 +303,6 @@ export default function AreasEspecialidad() {
             </motion.div>
           </motion.div>
 
-          {/* Otras Áreas */}
           <motion.div
             className={styles.specialtySection}
             initial="hidden"

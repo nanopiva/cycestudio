@@ -1,4 +1,3 @@
-/* Estilos Base */
 .body {
   font-family: "Lora", serif;
   color: var(--color-gray-800);
@@ -12,7 +11,6 @@
   padding: 0 2rem;
 }
 
-/* Hero Section */
 .heroContainer {
   position: relative;
   display: flex;
@@ -57,7 +55,6 @@
   padding: 0 2rem;
 }
 
-/* Títulos y textos */
 .sectionTitle {
   font-size: 1.75rem;
   font-weight: 700;
@@ -87,7 +84,6 @@
   margin: 1.5rem auto;
 }
 
-/* Botones y enlaces */
 .linkButton {
   color: var(--color-secondary);
   text-decoration: none;
@@ -124,7 +120,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Sección Blanca */
 .whiteSection {
   padding: 6rem 0;
   background-color: white;
@@ -138,7 +133,6 @@
   margin: 0 auto 4rem;
 }
 
-/* Sección de Especialidades */
 .specialtiesGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -186,7 +180,6 @@
   margin-top: 4rem;
 }
 
-/* Sección Imagen + Texto - Versión Mejorada */
 .imageTextSection {
   display: flex;
   flex-direction: column;
@@ -226,7 +219,6 @@
   width: 60px;
 }
 
-/* Sección de Enfoque Profesional */
 .professionalApproach {
   padding: 8rem 0;
   background-color: var(--color-primary);
@@ -274,7 +266,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Sección: Consejos Legales en Redes */
 .socialTipsSection {
   padding: 6rem 0;
   background-color: var(--color-primary-lightest);
@@ -385,7 +376,6 @@
   color: var(--color-primary-dark);
 }
 
-/* Scroll animations */
 .scrollFadeIn {
   opacity: 0;
   transform: translateY(30px);
@@ -397,7 +387,6 @@
   transform: translateY(0);
 }
 
-/* Transiciones */
 .smoothTransition {
   transition: all 0.4s ease-in-out;
 }
@@ -422,7 +411,6 @@
   transition: all 0.4s ease-in-out;
 }
 
-/* Media Queries Responsive */
 @media (min-width: 576px) {
   .body {
     font-size: 1.0625rem;
@@ -483,7 +471,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Ajustes específicos para imageTextSection en tablet */
   .imageTextSection {
     flex-direction: row;
     min-height: 500px;
@@ -526,7 +513,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Ajustes para imageTextSection en desktop */
   .imageTextSection {
     min-height: 600px;
   }
@@ -554,7 +540,6 @@
     font-size: 1.5rem;
   }
 
-  /* Ajuste final para imageTextSection en pantallas grandes */
   .textHalf {
     padding: 4rem;
   }

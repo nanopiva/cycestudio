@@ -6,7 +6,7 @@ import heroNosotros from "../../../public/heroNosotros.png";
 import CTA from "@/components/Cta";
 import { motion } from "framer-motion";
 
-// Animation variants
+// Variantes de animación
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -68,7 +68,7 @@ const principleVariants = {
 export default function Nosotros() {
   return (
     <div className={styles.container}>
-      {/* Hero Section */}
+      {/* Hero */}
       <section className={styles.heroContainer}>
         <div className={styles.container}>
           <Hero
@@ -79,29 +79,25 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* Contenido Principal */}
+      {/* Contenido Principal*/}
       <main className={styles.mainContent}>
-        {/* Sección de Introducción */}
         <motion.section
           className={styles.section}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }} // Ajuste clave aquí
+          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
           variants={sectionVariants}
         >
           <motion.h2 className={styles.sectionTitle} variants={itemVariants}>
             Nuestra esencia
           </motion.h2>
-          <motion.div
-            className={styles.goldDivider}
-            variants={itemVariants}
-          ></motion.div>
+          <motion.div className={styles.goldDivider} variants={itemVariants} />
+
           <motion.div
             className={styles.textContent}
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "0px 0px -50px 0px" }} // Ajuste clave aquí
+            animate="visible"
           >
             <motion.p variants={itemVariants}>
               En <strong>C&C Soluciones Legales</strong>, hemos desarrollado una
@@ -117,7 +113,7 @@ export default function Nosotros() {
           </motion.div>
         </motion.section>
 
-        {/* Sección de Compromiso */}
+        {/* Sección de Compromiso*/}
         <motion.section
           className={styles.section}
           initial="hidden"
@@ -128,10 +124,8 @@ export default function Nosotros() {
           <motion.h2 className={styles.sectionTitle} variants={itemVariants}>
             Nuestro compromiso
           </motion.h2>
-          <motion.div
-            className={styles.goldDivider}
-            variants={itemVariants}
-          ></motion.div>
+          <motion.div className={styles.goldDivider} variants={itemVariants} />
+
           <motion.div
             className={styles.textContent}
             variants={containerVariants}
@@ -165,7 +159,7 @@ export default function Nosotros() {
           </motion.div>
         </motion.section>
 
-        {/* Sección de Valores - Versión mejorada */}
+        {/* Sección de Valores */}
         <motion.section
           className={styles.section}
           initial="hidden"
@@ -176,10 +170,8 @@ export default function Nosotros() {
           <motion.h2 className={styles.sectionTitle} variants={itemVariants}>
             Principios rectores
           </motion.h2>
-          <motion.div
-            className={styles.goldDivider}
-            variants={itemVariants}
-          ></motion.div>
+          <motion.div className={styles.goldDivider} variants={itemVariants} />
+
           <motion.div
             className={styles.principlesContainer}
             variants={containerVariants}
@@ -202,7 +194,7 @@ export default function Nosotros() {
             <motion.div
               className={styles.principleDivider}
               variants={fadeInVariants}
-            ></motion.div>
+            />
 
             <motion.div
               className={styles.principle}
@@ -219,7 +211,7 @@ export default function Nosotros() {
             <motion.div
               className={styles.principleDivider}
               variants={fadeInVariants}
-            ></motion.div>
+            />
 
             <motion.div
               className={styles.principle}
@@ -236,7 +228,7 @@ export default function Nosotros() {
             <motion.div
               className={styles.principleDivider}
               variants={fadeInVariants}
-            ></motion.div>
+            />
 
             <motion.div
               className={styles.principle}
@@ -253,7 +245,7 @@ export default function Nosotros() {
             <motion.div
               className={styles.principleDivider}
               variants={fadeInVariants}
-            ></motion.div>
+            />
 
             <motion.div
               className={styles.principle}
@@ -270,6 +262,7 @@ export default function Nosotros() {
         </motion.section>
       </main>
 
+      {/* CTA  */}
       <motion.div
         initial="hidden"
         whileInView="visible"

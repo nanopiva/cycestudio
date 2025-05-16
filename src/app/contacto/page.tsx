@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import heroContact from "../../../public/heroContacto.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Animation variants
+// Animaciones
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -51,8 +51,9 @@ export default function Contacto() {
       type === "phone" ? "¡Número copiado!" : "¡Correo electrónico copiado!"
     );
     setShowModal(true);
-    setTimeout(() => setShowModal(false), 3000); // Cambiado de 5000 a 3000 (3 segundos)
+    setTimeout(() => setShowModal(false), 3000);
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -76,9 +77,8 @@ export default function Contacto() {
         }
       );
 
-      if (!response.ok) {
+      if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
-      }
 
       const data = await response.json();
 
@@ -87,7 +87,7 @@ export default function Contacto() {
           "Formulario enviado correctamente. Su consulta será respondida a la brevedad!"
         );
         setShowModal(true);
-        setTimeout(() => setShowModal(false), 7000); // Cambiado de 5000 a 7000 (7 segundos)
+        setTimeout(() => setShowModal(false), 7000);
         (e.target as HTMLFormElement).reset();
       } else {
         throw new Error(
@@ -102,14 +102,14 @@ export default function Contacto() {
           : "Hubo un error al enviar el formulario. Por favor intente nuevamente."
       );
       setShowModal(true);
-      setTimeout(() => setShowModal(false), 7000); // Cambiado de 5000 a 7000 (7 segundos)
+      setTimeout(() => setShowModal(false), 7000);
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className={styles.body}>
-      {/* Hero Section */}
       <section className={styles.heroContainer}>
         <div className={styles.container}>
           <Hero
@@ -120,7 +120,6 @@ export default function Contacto() {
         </div>
       </section>
 
-      {/* Sección de Contacto Principal */}
       <motion.section
         className={styles.contactSection}
         initial="hidden"
@@ -151,7 +150,6 @@ export default function Contacto() {
             variants={staggerContainer}
           >
             <div className={styles.contactGrid}>
-              {/* Teléfono Santa Fe */}
               <motion.div
                 className={`${styles.contactMethod} ${styles.santaFeMethod}`}
                 variants={cardAnimation}
@@ -216,7 +214,6 @@ export default function Contacto() {
                 </div>
               </motion.div>
 
-              {/* Teléfono Entre Ríos */}
               <motion.div
                 className={`${styles.contactMethod} ${styles.entreRiosMethod}`}
                 variants={cardAnimation}
@@ -281,7 +278,6 @@ export default function Contacto() {
                 </div>
               </motion.div>
 
-              {/* Email */}
               <motion.div
                 className={`${styles.contactMethod} ${styles.emailMethod}`}
                 variants={cardAnimation}
@@ -344,7 +340,6 @@ export default function Contacto() {
         </div>
       </motion.section>
 
-      {/* Nueva Sección de Modalidades de Consulta */}
       <motion.section
         className={styles.consultationTypesSection}
         initial="hidden"
@@ -444,7 +439,6 @@ export default function Contacto() {
         </div>
       </motion.section>
 
-      {/* Sección de Ubicaciones */}
       <motion.section
         className={styles.locationsSection}
         initial="hidden"
@@ -474,7 +468,6 @@ export default function Contacto() {
             className={styles.locationsGrid}
             variants={staggerContainer}
           >
-            {/* Santa Fe */}
             <motion.div
               className={styles.locationCard}
               variants={cardAnimation}
@@ -532,7 +525,6 @@ export default function Contacto() {
               </div>
             </motion.div>
 
-            {/* Entre Ríos */}
             <motion.div
               className={styles.locationCard}
               variants={cardAnimation}
@@ -592,7 +584,7 @@ export default function Contacto() {
           </motion.div>
         </div>
       </motion.section>
-      {/* Sección de Formulario de Contacto */}
+
       <motion.section
         className={styles.formSection}
         initial="hidden"
@@ -613,7 +605,6 @@ export default function Contacto() {
           <form onSubmit={handleSubmit} className={styles.contactForm}>
             <input type="hidden" name="_captcha" value="false" />
 
-            {/* Campos del formulario se mantienen igual */}
             <motion.div className={styles.formGroup} variants={fadeUp}>
               <label htmlFor="name" className={styles.formLabel}>
                 Nombre completo*
@@ -705,15 +696,12 @@ export default function Contacto() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             style={{
               position: "fixed",
               left: "50%",
               bottom: "20px",
-              x: "-50%", // Esto evita el conflicto con transform de Framer Motion
+              x: "-50%",
             }}
           >
             <div className={styles.modalContent}>
