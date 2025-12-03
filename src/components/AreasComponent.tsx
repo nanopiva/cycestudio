@@ -4,7 +4,7 @@ import styles from "../styles/AreasComponent.module.css";
 import Hero from "@/components/Hero";
 import areasHero from "../../public/areasHero.jpg";
 import CTA from "@/components/Cta";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // <--- AGREGADO: Importamos "Variants"
 import {
   FaBriefcase,
   FaGavel,
@@ -15,7 +15,9 @@ import {
 } from "react-icons/fa";
 
 // Animation variants
-const containerVariants = {
+// AGREGADO: ": Variants" a cada objeto para asegurar el tipo correcto
+
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -26,7 +28,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -38,7 +40,7 @@ const itemVariants = {
   },
 };
 
-const fadeInVariants = {
+const fadeInVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -49,7 +51,7 @@ const fadeInVariants = {
   },
 };
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,

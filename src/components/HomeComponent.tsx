@@ -4,10 +4,11 @@ import styles from "../styles/HomeComponent.module.css";
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import CTA from "@/components/Cta";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // <--- AGREGADO: Variants
 import heroImage from "../../public/tribunales.jpg";
 
-const containerVariants = {
+// AGREGADO: ": Variants" a todas las constantes
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -18,7 +19,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -30,7 +31,7 @@ const itemVariants = {
   },
 };
 
-const fadeInVariants = {
+const fadeInVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,

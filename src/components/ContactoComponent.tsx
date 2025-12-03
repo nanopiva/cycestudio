@@ -4,15 +4,16 @@ import { useState } from "react";
 import styles from "../styles/ContactoComponent.module.css";
 import Hero from "@/components/Hero";
 import heroContact from "../../public/heroContacto.jpg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion"; // <--- AGREGADO: Variants
 
 // Animaciones
-const fadeUp = {
+// AGREGADO: ": Variants" a cada objeto
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -23,12 +24,12 @@ const staggerContainer = {
   },
 };
 
-const cardAnimation = {
+const cardAnimation: Variants = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
 };
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,

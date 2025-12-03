@@ -4,10 +4,11 @@ import styles from "../styles/NosotrosComponent.module.css";
 import Hero from "@/components/Hero";
 import heroNosotros from "../../public/heroNosotros.png";
 import CTA from "@/components/Cta";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // <--- AGREGADO: Variants
 
 // Variantes de animación
-const containerVariants = {
+// AGREGADO: ": Variants" a todas las constantes
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -18,7 +19,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -30,7 +31,7 @@ const itemVariants = {
   },
 };
 
-const fadeInVariants = {
+const fadeInVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -41,7 +42,7 @@ const fadeInVariants = {
   },
 };
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
@@ -53,7 +54,7 @@ const sectionVariants = {
   },
 };
 
-const principleVariants = {
+const principleVariants: Variants = {
   hidden: { opacity: 0, x: -30 },
   visible: {
     opacity: 1,
